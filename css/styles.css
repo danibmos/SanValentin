@@ -1,0 +1,149 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f7e8e3;
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 800px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+}
+
+.page, .quiz-page {
+    padding: 20px;
+    display: none;
+}
+
+.page.active, .quiz-page.active {
+    display: block;
+}
+
+.navigation, .quiz-navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #f1c4b7;
+}
+
+.button {
+    background: #ff7675;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:disabled {
+    background: #d3d3d3;
+    cursor: not-allowed;
+}
+
+#quizResult {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+#quizSummary ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#error {
+    color: red;
+    font-size: 0.9em;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+.pagination button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.pagination button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* Estilos para las imágenes en miniatura */
+.thumbnail {
+    width: 100px; /* Tamaño de la miniatura */
+    height: auto;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Efecto de ampliación */
+}
+
+.thumbnail:hover {
+    transform: scale(1.1); /* Efecto de hover */
+}
+
+/* Estilos del modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro más opaco */
+    overflow: hidden;
+}
+
+/* Contenedor de la imagen en el modal */
+.modal-content {
+    position: relative;
+    max-width: 60vw; /* Imagen ajustada al 60% del ancho de la pantalla */
+    max-height: 60vh; /* Imagen ajustada al 60% de la altura de la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Evitar que se desborde la imagen */
+}
+
+/* Imagen en el modal sin fondo blanco y ajustada sin recorte */
+.modal-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Asegura que la imagen mantenga sus proporciones y se ajuste dentro del contenedor sin recorte */
+}
+
+/* Fondo transparente detrás de la imagen */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    z-index: -1; /* Asegurarse de que el fondo no interfiera con la imagen */
+}
