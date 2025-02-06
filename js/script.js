@@ -170,25 +170,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configuración de la galería
     const imagesPerPageGallery = 6; // Número de imágenes por página
     const allImages = [
-        "/img/fotos/imagen1.jpg",
-            "/img/fotos/imagen2.jpg",
-            "/img/fotos/imagen3.jpg",
-            "/img/fotos/imagen4.jpg",
-            "/img/fotos/imagen5.jpg",
-            "/img/fotos/imagen6.jpg",
-            "/img/fotos/imagen7.jpg",
-            "/img/fotos/imagen8.jpg",
-            "/img/fotos/imagen9.jpg",
-            "/img/fotos/imagen10.jpg",
-            "/img/fotos/imagen11.gif",
-            "/img/fotos/imagen12.jpg",
-            "/img/fotos/imagen13.jpg",
-            "/img/fotos/imagen14.jpg",
-            "/img/fotos/imagen15.jpg",
-            "/img/fotos/imagen16.jpg",
-            "/img/fotos/imagen17.jpg",
-            "/img/fotos/imagen18.jpg",
-            "/img/fotos/imagen19.jpg"
+        "../img/fotos/imagen1.jpg",
+            "../img/fotos/imagen2.jpg",
+            "../img/fotos/imagen3.jpg",
+            "../img/fotos/imagen4.jpg",
+            "../img/fotos/imagen5.jpg",
+            "../img/fotos/imagen6.jpg",
+            "../img/fotos/imagen7.jpg",
+            "../img/fotos/imagen8.jpg",
+            "../img/fotos/imagen9.jpg",
+            "../img/fotos/imagen10.jpg",
+            "../img/fotos/imagen11.gif",
+            "../img/fotos/imagen12.jpg",
+            "../img/fotos/imagen13.jpg",
+            "../img/fotos/imagen14.jpg",
+            "../img/fotos/imagen15.jpg",
+            "../img/fotos/imagen16.jpg",
+            "../img/fotos/imagen17.jpg",
+            "../img/fotos/imagen18.jpg",
+            "../img/fotos/imagen19.jpg"
     ];
 
     let currentPageGallery = 1; // Página actual
