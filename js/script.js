@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configuración de la galería
     const imagesPerPageGallery = 6; // Número de imágenes por página
     const allImages = [
-        "../img/fotos/imagen1.jpg",
+            "../img/fotos/imagen1.jpg",
             "../img/fotos/imagen2.jpg",
             "../img/fotos/imagen3.jpg",
             "../img/fotos/imagen4.jpg",
