@@ -3,44 +3,78 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #f7e8e3;
+    min-height: 100vh;
+    background-color: #ffe6e6;
     margin: 0;
+    background-image: radial-gradient(circle, rgba(255, 204, 214, 0.8) 10%, transparent 20%),
+        radial-gradient(circle, rgba(255, 153, 170, 0.6) 20%, transparent 30%),
+        radial-gradient(circle, rgba(255, 102, 136, 0.4) 30%, transparent 40%);
+    background-size: 150px 150px;
+    background-position: 0 0, 50px 50px, 100px 100px;
 }
 
 .container {
     width: 80%;
     max-width: 800px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #fff0f5;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     position: relative;
+    border: 3px solid #ff4d6d;
+    padding: 15px;
 }
 
-.page, .quiz-page {
+.page,
+.quiz-page {
     padding: 20px;
     display: none;
 }
 
-.page.active, .quiz-page.active {
+.page.active,
+.quiz-page.active {
     display: block;
 }
 
-.navigation, .quiz-navigation {
+.navigation {
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background: #f1c4b7;
+    background: #ffb3c1;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 2px;
+    border-radius: 40px;
+}
+
+.quiz-navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
 }
 
 .button {
-    background: #ff7675;
+    background: #ff4d6d;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+}
+
+.button:hover {
+    background: #ff1f4d;
+    transform: scale(1.1);
 }
 
 .button:disabled {
@@ -49,18 +83,55 @@ body {
 }
 
 #quizResult {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: 10px;
+    color: #ff4d6d;
+    font-weight: bold;
+    text-align: center;
+    background: #ffe6ea;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#quizResult::before {
+    content: "💖";
+}
+
+#quizResult::after {
+    content: "💖";
 }
 
 #quizSummary ul {
     list-style-type: none;
     padding-left: 0;
+    text-align: center;
 }
 
 #error {
     color: red;
     font-size: 0.9em;
+    font-weight: bold;
+}
+
+.quiz-page {
+    background: #ffeff5;
+    border: 3px dashed #ff4d6d;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.quiz-page::before {
+    content: "💘Bienvenida al Quiz💘";
+    font-size: 1.5rem;
+    color: #ff4d6d;
+    display: block;
+    margin-bottom: 10px;
 }
 
 .gallery {
@@ -68,43 +139,51 @@ body {
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
+
 .gallery img {
     width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 10px;
+    border: 2px solid #ff4d6d;
 }
+
 .pagination {
     text-align: center;
     margin-top: 20px;
 }
+
 .pagination button {
-    padding: 5px 10px;
+    padding: 10px 15px;
     margin: 0 5px;
     border: none;
-    background-color: #007bff;
+    background-color: #ff4d6d;
     color: white;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
 }
+
 .pagination button:disabled {
     background-color: #ddd;
     cursor: not-allowed;
 }
 
-/* Estilos para las imágenes en miniatura */
 .thumbnail {
-    width: 100px; /* Tamaño de la miniatura */
+    width: 100px;
     height: auto;
     margin: 10px;
     cursor: pointer;
-    transition: transform 0.3s ease; /* Efecto de ampliación */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    border: 2px solid #ff4d6d;
 }
 
 .thumbnail:hover {
-    transform: scale(1.1); /* Efecto de hover */
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(255, 77, 109, 0.5);
 }
 
-/* Estilos del modal */
 .modal {
     position: fixed;
     top: 0;
@@ -115,29 +194,29 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.9); /* Fondo oscuro más opaco */
+    background-color: rgba(0, 0, 0, 0.7);
     overflow: hidden;
 }
 
-/* Contenedor de la imagen en el modal */
 .modal-content {
     position: relative;
-    max-width: 60vw; /* Imagen ajustada al 60% del ancho de la pantalla */
-    max-height: 60vh; /* Imagen ajustada al 60% de la altura de la pantalla */
+    max-width: 60vw;
+    max-height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Evitar que se desborde la imagen */
+    overflow: hidden;
+    border-radius: 10px;
+    background: white;
+    padding: 10px;
 }
 
-/* Imagen en el modal sin fondo blanco y ajustada sin recorte */
 .modal-content img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Asegura que la imagen mantenga sus proporciones y se ajuste dentro del contenedor sin recorte */
+    object-fit: contain;
 }
 
-/* Fondo transparente detrás de la imagen */
 .overlay {
     position: absolute;
     top: 0;
@@ -145,5 +224,203 @@ body {
     right: 0;
     bottom: 0;
     background-color: transparent;
-    z-index: -1; /* Asegurarse de que el fondo no interfiera con la imagen */
+    z-index: -1;
+}
+
+form {
+    background: #ffe6ea;
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #ff4d6d;
+    text-align: center;
+}
+
+label {
+    font-size: 1.2rem;
+    color: #ff4d6d;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+a {
+    color: #ff4d6d;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ff1f4d;
+    text-decoration: underline;
+}
+
+
+p {
+    color: #7a4b5d;
+    /* Color suave, un tono oscuro pero cálido de rosa */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-family: 'Georgia', serif;
+    /* Fuente elegante */
+    text-align: center;
+}
+
+input[type="date"] {
+    background-color: #fce7f3;
+    /* Fondo en tono suave rosa pastel */
+    border: 1px solid #f8b6c1;
+    /* Bordes suaves en rosa claro */
+    color: #7a4b5d;
+    /* Color de texto que armoniza con el tono de los párrafos */
+    padding: 8px 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    font-family: 'Arial', sans-serif;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+input[type="date"]:focus {
+    background-color: #ffe0e6;
+    /* Fondo ligeramente más claro cuando se enfoca */
+    border-color: #ff7a8d;
+    /* Cambio de borde al enfocar */
+}
+
+.responsive-iframe {
+    width: 100%;
+    /* El iframe ocupa todo el ancho disponible */
+    height: auto;
+    /* La altura se ajusta proporcionalmente */
+    max-width: 100%;
+    /* Asegura que no se exceda el ancho del contenedor */
+    aspect-ratio: 16 / 9;
+    /* Mantiene la relación de aspecto de 16:9 */
+    border: none;
+    /* Elimina el borde por defecto */
+    border-radius: 20px;
+}
+
+.button-container button:hover {
+    transform: scale(1.1);
+}
+
+#page8 {
+    background: #fff0f5;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+}
+
+#page8 h1 {
+    font-size: 2rem;
+    color: #ff4d6d;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#page8 .button-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#page8 .button-container button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    background-color: #ff7f7f;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+#page8 .button-container button:hover {
+    background-color: #ff4d6d;
+    transform: scale(1.1);
+}
+
+#page8 #respuesta {
+    font-size: 1.5rem;
+    color: #ff4d6d;
+    font-weight: bold;
+    margin-top: 30px;
+    display: none;
+}
+
+#page8 #respuesta.positivo {
+    color: #ff66b2;
+}
+
+#page8 .no-button.moved {
+    transform: translateX(-150px);
+    transition: transform 0.1s ease;
+}
+
+h1 {
+    color: #FF66B2; /* Tono rosáceo */
+    position: relative;
+    padding: 0 2rem; /* Espaciado extra para los emojis */
+    text-align: center; /* Para centrar el texto */
+}
+
+h1::before,
+h1::after {
+    content: ''; /* Inicializamos contenido vacío */
+    top: 0;
+    transform: translateY(-50%); /* Alineamos verticalmente al centro */
+}
+
+h1::before {
+    content: '💖'; /* Emoji fijo al principio */
+}
+
+h1::after {
+    content: '💖'; /* Emoji fijo al final */
+}
+
+#password-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.945);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+#password-input {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #FF66B2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #ff3399;
+}
+
+#content {
+    display: none;
 }

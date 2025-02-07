@@ -1,5 +1,5 @@
 let currentPage = 1;
-const totalPages = 7;
+const totalPages = 9;
 let currentQuizPage = 1;
 const totalQuizPages = 20;
 
@@ -16,8 +16,13 @@ function changePage(direction) {
     currentPage += direction;
     document.getElementById(`page${currentPage}`).classList.add('active');
     
+    // Desactivar los botones prev y next si estamos en los extremos
     document.getElementById('prevButton').disabled = currentPage === 1;
-    document.getElementById('nextButton').disabled = currentPage === totalPages;
+    if (currentPage === totalPages) {
+        document.getElementById('nextButton').style.display = 'none';  // Ocultar el botón "Siguiente"
+    } else {
+        document.getElementById('nextButton').style.display = 'inline-block';  // Mostrarlo en otras páginas
+    }
 }
 
 document.getElementById('nextQuiz').addEventListener('click', () => {
@@ -54,17 +59,17 @@ function checkQuiz() {
         q7: "mexico",
         q8: "informatica",
         q9: "18a",
-        q10: "Serie1",
-        q11: "Deporte3",
-        q12: "Bebida2",
-        q13: "Animal3",
-        q14: "Color1",  
-        q15: "ActividadB", 
-        q16: "PelículaB",  
-        q17: "Estación2",  
-        q18: "Actor2",     
-        q19: "BebidaC",    
-        q20: "MetaA"   
+        q10: "merli",
+        q11: "uxia",
+        q12: "cocacola",
+        q13: "gato",
+        q14: "tata",  
+        q15: "altea", 
+        q16: "sonic2",  
+        q17: "verano",  
+        q18: "aleman",     
+        q19: "capuccino",    
+        q20: "terminarañocontigo"   
     };
     
     let score = 0;
@@ -284,3 +289,69 @@ document.addEventListener('DOMContentLoaded', function() {
     displayGallery();
 });
 
+const noButton = document.getElementById('no');
+const siButton = document.getElementById('si');
+const respuesta = document.getElementById('respuesta');
+
+// Función para mover y desaparecer el botón "No"
+noButton.addEventListener("click", function() {
+    this.style.display = "none"; // Hace desaparecer el botón "No" al hacer clic
+});
+
+noButton.addEventListener("mouseover", function() {
+    this.style.display = "none"; // Hace desaparecer el botón "No" al poner el ratón encima
+});
+
+// Función para mostrar la respuesta cuando se hace clic en "Sí"
+siButton.addEventListener("click", function() {
+    respuesta.innerHTML = "¡Sabía que querías!"; // Cambia el contenido del div
+    respuesta.classList.add("positivo"); // Añade clase para dar estilo
+    respuesta.style.display = "block"; // Muestra el div con la respuesta
+});
+
+
+// Contraseña correcta
+const correctPassword = "011224"; // Cambia esto por la contraseña que quieras
+let attemptsLeft = 3; // Número de intentos disponibles
+
+function checkPassword() {
+    const inputPassword = document.getElementById('password-input').value;
+
+    // Verificar si la contraseña es correcta
+    if (inputPassword === correctPassword) {
+        // Ocultar la pantalla de contraseña
+        document.getElementById('password-screen').style.display = 'none';
+
+        // Mostrar el contenido de la página
+        document.getElementById('content').style.display = 'block';
+
+        // Activar de nuevo el contenedor de fondo
+        document.getElementById('main-container').style.pointerEvents = 'auto';
+        document.getElementById('main-container').style.opacity = '1';
+    } else {
+        attemptsLeft--; // Restar un intento
+        document.getElementById('attempts-left').innerText = `Te quedan ${attemptsLeft} intentos`;
+
+        // Si no quedan intentos
+        if (attemptsLeft <= 0) {
+            redirectToGoogle(); // Redirigir a Google si la contraseña es incorrecta 3 veces
+        }
+    }
+}
+
+function redirectToGoogle() {
+    // Redirige a Google después de 3 intentos fallidos
+    window.location.href = "https://www.google.com"; // Redirigir a la página de inicio de Google
+}
+
+function closePage() {
+        window.location.href = "https://www.google.com"; // Redirige a Google
+    }
+
+
+// Añadir atajo de teclado para Enter
+document.getElementById('password-input').addEventListener('keydown', function(event) {
+    if (event.key === "Enter") {
+        checkPassword(); // Llamar a la función checkPassword cuando se presiona Enter
+    }
+});

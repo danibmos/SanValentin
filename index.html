@@ -4,34 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para ti, mi amor</title>
+    <title>Te quiero Vanessa</title>
     <link rel="stylesheet" href="./css/styles.css">
+
 </head>
 
 <body>
-    <div class="container">
+    <div id="password-screen">
+        <h2>Introduce la contraseña para ver el contenido:</h2>
+        <input type="password" id="password-input" placeholder="Contraseña">
+        <button onclick="checkPassword()">Entrar</button>
+        <button onclick="closePage()">Cerrar</button> <!-- Botón para cerrar la página -->
+        <p id="attempts-left"></p> <!-- Mostrar los intentos restantes -->
+    </div>
+    <div class="container" id="content">
         <div class="page active" id="page1">
-            <h1>Bienvenida a tu rincón especial</h1>
-            <p>Este es un pequeño espacio creado solo para ti, porque te lo mereces todo y más.</p>
+            <h1>Para la persona que ilumina mis dias</h1>
+            <p>Vanessa gracias por todo lo que haces por mi, esto es un pequeño sitio web que me he tirado durante unas
+                poquitas horas haciendo
+                y que me ha costado tiempo, pero tu te mereces todo y mas, espero que te guste el detalle y Feliz San
+                Valetín.</p>
         </div>
         <div class="page" id="page2">
             <h1>Nuestros Momentos</h1>
-            <p>El día que nos conocimos fue el comienzo de algo increíble...</p>
+            <p>He preparado un pequeñito videito (Nivel Edicion de mi Abuela) para recordar momentos juntos, espero que
+                te guste ❤️</p>
+            <iframe class="responsive-iframe" src="https://www.youtube.com/embed/Ol6GbFeVWZU?si=GNkhJpFME2A4Ttlw"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <br>
+            <hr>
+            <a href="https://www.youtube.com/embed/Ol6GbFeVWZU?si=GNkhJpFME2A4Ttlw">Por si no funciona, haz click
+                aqui</a>
         </div>
         <div class="page" id="page3">
-            <h1>Lista de Razones</h1>
-            <ul>
-                <li>Tu sonrisa ilumina mi día.</li>
-                <li>Me haces reír como nadie más.</li>
-                <li>Eres la persona más comprensiva que conozco.</li>
-            </ul>
+            <h1>¿Cuanto sabes de mi?</h1>
+            <p>Se que estamos a final de semana amor mio y que hoy no hay clase, pero creo que puede ser divertido, a
+                pesar de todos los dolores de cabeza que me dio programar
+                esto, creo que puede estar guay. Esto consta de un miniexamen o quiz de 20 preguntas, sencillitas
+                tranquila, al acabar tendras que darle a enviar y posteriormente a Siguiente
+                donde veras tus resultados. Si respondes bien mas de 15 tienes derecho a pedirme todo lo que quieras en
+                lo que queda de fin de semana y no me podre negar, da igual lo cansado que este
+                la pereza que me de o que no quiera, lo tendré que hacer. (Si incluye dinero y no hay dinero disponible,
+                pues no se podra hacer, no fabrico dinero por el momento)
+            </p>
         </div>
         <div class="page" id="page4">
-            <h1>Quiz: ¿Cuánto me conoces?</h1>
             <form id="quizForm">
                 <div class="quiz-page active" id="quiz1">
                     <p>1.¿Dónde fue nuestra primera cita?</p>
-                    <label><input type="radio" name="q1" value="barbillar">En un bar junto el paseo maritimo a un par de calles de la escuela de musica</label>
+                    <label><input type="radio" name="q1" value="barbillar">En un bar junto el paseo maritimo a un par de
+                        calles de la escuela de musica</label>
                     <br>
                     <label><input type="radio" name="q1" value="Baobab">En el Baobab</label>
                     <br>
@@ -48,7 +72,7 @@
                     <label><input type="radio" name="q2" value="patatas">Patatas fritas</label>
                 </div>
                 <div class="quiz-page" id="quiz3">
-                    <p>3.¿Cuál es nuestro aniversario?</p>
+                    <p>3.¿Que día comenzamos a ser pareja?</p>
                     <input type="date" id="q3">
                 </div>
                 <div class="quiz-page" id="quiz4">
@@ -96,7 +120,7 @@
                     <label><input type="radio" name="q8" value="electronica"> Electronica</label>
                 </div>
                 <div class="quiz-page" id="quiz9">
-                    <p>9¿Que dia es mi cumple?</p>
+                    <p>9.¿Que dia es mi cumple?</p>
                     <label><input type="radio" name="q9" value="18m"> 18 de marzo</label>
                     <br>
                     <label><input type="radio" name="q9" value="20f"> 20 de febrero</label>
@@ -113,96 +137,139 @@
                 </div>
                 <div class="quiz-page" id="quiz10">
                     <p>10.¿Cuál es mi serie favorita?</p>
-                    <label><input type="radio" name="q10" value="Serie1"> Serie 1</label>
+                    <label><input type="radio" name="q10" value="merli">Merlí</label>
                     <br>
-                    <label><input type="radio" name="q10" value="Serie2"> Serie 2</label>
+                    <label><input type="radio" name="q10" value="reinadelflow">La reina del flow</label>
                     <br>
-                    <label><input type="radio" name="q10" value="Serie3"> Serie 3</label>
+                    <label><input type="radio" name="q10" value="lossimpson">Los simpson</label>
                 </div>
                 <div class="quiz-page" id="quiz11">
-                    <p>11.¿Cuál es mi deporte favorito?</p>
-                    <label><input type="radio" name="q11" value="Deporte1"> Deporte 1</label>
+                    <p>11.¿Quien inicio nuestra primera conversacion?</p>
+                    <label><input type="radio" name="q11" value="galloso">Galloso</label>
                     <br>
-                    <label><input type="radio" name="q11" value="Deporte2"> Deporte 2</label>
+                    <label><input type="radio" name="q11" value="rauw">Rauw Alejandro</label>
                     <br>
-                    <label><input type="radio" name="q11" value="Deporte3"> Deporte 3</label>
+                    <label><input type="radio" name="q11" value="vanessa">Vanessa Gómez Velazquez</label>
+                    <br>
+                    <label><input type="radio" name="q11" value="dani">Daniel Blanco Mosquera</label>
+                    <br>
+                    <label><input type="radio" name="q11" value="romeo">Romeo Santos</label>
+                    <br>
+                    <label><input type="radio" name="q11" value="uxia">Uxia</label>
                 </div>
                 <div class="quiz-page" id="quiz12">
-                    <p>12.¿Qué bebida prefiero cuando salimos?</p>
-                    <label><input type="radio" name="q12" value="Bebida1"> Bebida 1</label>
+                    <p>12.¿Qué bebida odio?</p>
+                    <label><input type="radio" name="q12" value="nestea">Nestea</label>
                     <br>
-                    <label><input type="radio" name="q12" value="Bebida2"> Bebida 2</label>
+                    <label><input type="radio" name="q12" value="aquarius">Aquarius</label>
                     <br>
-                    <label><input type="radio" name="q12" value="Bebida3"> Bebida 3</label>
+                    <label><input type="radio" name="q12" value="kas">Kas</label>
+                    <br>
+                    <label><input type="radio" name="q12" value="fanta">Fanta</label>
+                    <br>
+                    <label><input type="radio" name="q12" value="cocacola">CocaCola</label>
+                    <br>
+                    <label><input type="radio" name="q12" value="agua">Agua</label>
+                    <br>
+                    <label><input type="radio" name="q12" value="cerveza">Cerveza</label>
                 </div>
                 <div class="quiz-page" id="quiz13">
                     <p>13.¿Qué animal me gustaría tener como mascota?</p>
-                    <label><input type="radio" name="q13" value="Animal1"> Animal 1</label>
+                    <label><input type="radio" name="q13" value="cocodrilp">Cocodrilo</label>
                     <br>
-                    <label><input type="radio" name="q13" value="Animal2"> Animal 2</label>
+                    <label><input type="radio" name="q13" value="loro">Loro</label>
                     <br>
-                    <label><input type="radio" name="q13" value="Animal3"> Animal 3</label>
+                    <label><input type="radio" name="q13" value="pez">Pez</label>
+                    <br>
+                    <label><input type="radio" name="q13" value="leopardo">Leopardo de las Nieves</label>
+                    <br>
+                    <label><input type="radio" name="q13" value="oso">Oso Polar</label>
+                    <br>
+                    <label><input type="radio" name="q13" value="perro">Perro</label>
+                    <br>
+                    <label><input type="radio" name="q13" value="gato">Gato</label>
+                    <br>
+                    <label><input type="radio" name="q13" value="raton">Raton</label>
                 </div>
                 <div class="quiz-page" id="quiz14">
-                    <p>14.¿Cuál es mi color favorito?</p>
-                    <label><input type="radio" name="q14" value="Color1"> Color 1</label>
+                    <p>14.¿Cúal fue mi primer coche? (A mi nombre)</p>
+                    <label><input type="radio" name="q14" value="ford"> Ford Focus</label>
                     <br>
-                    <label><input type="radio" name="q14" value="Color2"> Color 2</label>
+                    <label><input type="radio" name="q14" value="daewo"> Daewo Kalos</label>
                     <br>
-                    <label><input type="radio" name="q14" value="Color3"> Color 3</label>
+                    <label><input type="radio" name="q14" value="tesla"> Tesla Model 3</label>
+                    <br>
+                    <label><input type="radio" name="q14" value="renault"> Renault Captur</label>
+                    <br>
+                    <label><input type="radio" name="q14" value="tata"> Tata Indica Vista</label>
+                    <br>
+                    <label><input type="radio" name="q14" value="mazda"> Mazda Cx5</label>
+                    <br>
+                    <label><input type="radio" name="q14" value="leon"> Seat Leon</label>
+                    <br>
+                    <label><input type="radio" name="q14" value="ibiza"> Seat Ibiza</label>
+                    <br>
+                    <label><input type="radio" name="q14" value="marbella"> Seat Marbella</label>
+                    <br>
+                    <label><input type="radio" name="q14" value="altea"> Seat Altea</label>
+                    <br>
+                    <label><input type="radio" name="q14" value="lambo"> Lamborguini Urus</label>
                 </div>
                 <div class="quiz-page" id="quiz15">
-                    <p>15.¿Qué me gustaría hacer en un fin de semana perfecto?</p>
-                    <label><input type="radio" name="q15" value="ActividadA"> Actividad A</label>
+                    <p>15.¿Cual es el coche actual de Dani?</p>
+                    <label><input type="radio" name="q15" value="altea"> Seat Altea</label>
                     <br>
-                    <label><input type="radio" name="q15" value="ActividadB"> Actividad B</label>
+                    <label><input type="radio" name="q15" value="focus"> Ford Focus</label>
                     <br>
-                    <label><input type="radio" name="q15" value="ActividadC"> Actividad C</label>
+                    <label><input type="radio" name="q15" value="leon"> Seat Leon</label>
                 </div>
                 <div class="quiz-page" id="quiz16">
-                    <p>16.¿Qué tipo de película prefiero?</p>
-                    <label><input type="radio" name="q16" value="PelículaA"> Película A</label>
+                    <p>16.¿Que pelicula no fuimos a ver al cine?</p>
+                    <label><input type="radio" name="q16" value="vaiana2">Vaiana 2</label>
                     <br>
-                    <label><input type="radio" name="q16" value="PelículaB"> Película B</label>
+                    <label><input type="radio" name="q16" value="sonic2">Sonic 2</label>
                     <br>
-                    <label><input type="radio" name="q16" value="PelículaC"> Película C</label>
+                    <label><input type="radio" name="q16" value="mufasa">Mufasa</label>
                 </div>
                 <div class="quiz-page" id="quiz17">
                     <p>17¿Qué estación del año me gusta más?</p>
-                    <label><input type="radio" name="q17" value="Estación1"> Estación 1</label>
+                    <label><input type="radio" name="q17" value="invierno">Invierno</label>
                     <br>
-                    <label><input type="radio" name="q17" value="Estación2"> Estación 2</label>
+                    <label><input type="radio" name="q17" value="verano">Verano</label>
                     <br>
-                    <label><input type="radio" name="q17" value="Estación3"> Estación 3</label>
+                    <label><input type="radio" name="q17" value="otoño">Otoño</label>
+                    <br>
+                    <label><input type="radio" name="q17" value="primavera">Primavera</label>
                 </div>
                 <div class="quiz-page" id="quiz18">
-                    <p>18.¿Cuál es mi actor/actriz favorito/a?</p>
-                    <label><input type="radio" name="q18" value="Actor1"> Actor 1</label>
+                    <p>18.¿Que idioma nunca empece a aprender a hablar?</p>
+                    <label><input type="radio" name="q18" value="aleman">Aleman</label>
                     <br>
-                    <label><input type="radio" name="q18" value="Actor2"> Actor 2</label>
+                    <label><input type="radio" name="q18" value="frances">Frances</label>
                     <br>
-                    <label><input type="radio" name="q18" value="Actor3"> Actor 3</label>
+                    <label><input type="radio" name="q18" value="ingles">Ingles</label>
                 </div>
                 <div class="quiz-page" id="quiz19">
-                    <p>19.¿Cuál es mi bebida favorita?</p>
-                    <label><input type="radio" name="q19" value="BebidaA"> Bebida A</label>
+                    <p>19.¿Que cafe me gusta mas?</p>
+                    <label><input type="radio" name="q19" value="cafeazucar">Cafe con doble de azucar</label>
                     <br>
-                    <label><input type="radio" name="q19" value="BebidaB"> Bebida B</label>
+                    <label><input type="radio" name="q19" value="macchiato">Caffè macchiato</label>
                     <br>
-                    <label><input type="radio" name="q19" value="BebidaC"> Bebida C</label>
+                    <label><input type="radio" name="q19" value="capuccino">Capuccino</label>
                 </div>
                 <div class="quiz-page" id="quiz20">
                     <p>20.¿Qué me gustaría lograr este año?</p>
-                    <label><input type="radio" name="q20" value="MetaA"> Meta A</label>
+                    <label><input type="radio" name="q20" value="terminarañocontigo">Terminar el año contigo</label>
                     <br>
-                    <label><input type="radio" name="q20" value="MetaB"> Meta B</label>
+                    <label><input type="radio" name="q20" value="dormir">Conseguir dormir 32 horas seguidas</label>
                     <br>
-                    <label><input type="radio" name="q20" value="MetaC"> Meta C</label>
+                    <label><input type="radio" name="q20" value="conducir">Dar la vuelta al mundo en coche</label>
                 </div>
                 <div class="quiz-navigation">
-                    <button type="button" id="prevQuiz" disabled>Anterior</button>
-                    <button type="button" id="nextQuiz">Siguiente</button>
-                    <button type="button" id="submitQuiz" style="display:none;" onclick="checkQuiz()">Enviar</button>
+                    <button type="button" class="button" id="prevQuiz" disabled>Anterior</button>
+                    <button type="button" class="button" id="nextQuiz">Siguiente</button>
+                    <button type="button" class="button" id="submitQuiz" style="display:none;"
+                        onclick="checkQuiz()">Enviar</button>
                 </div>
             </form>
 
@@ -219,7 +286,8 @@
         <div class="page" id="page6">
             <h1>Desde que estamos juntos</h1>
             <div id="timeDisplay">
-                <p id="timeElapsed"></>
+                <p id="timeElapsed">
+                </p>
             </div>
         </div>
 
@@ -230,12 +298,31 @@
             <div id="pagination" class="pagination"></div>
         </div>
 
+        <div class="page" id="page8">
+            <h1>¿Quieres ser mi San Valentín?</h1>
+
+            <div class="button-container">
+                <button id="no" class="no-button">No</button>
+                <button id="si" class="si-button">Sí</button>
+            </div>
+
+            <div id="respuesta"></div>
+        </div>
+
+        <div class="page" id="page9">
+            
+            <h1>FIN</h1>
+            <p>Muchas gracias mi amor por verlo todo, espero que te haya gustado, el año que viene mas y mejor, te quiero ❤️❤️❤️</p>
+
+        </div>
+
         <div class="navigation">
             <button class="button" id="prevButton" disabled>Anterior</button>
             <button class="button" id="nextButton">Siguiente</button>
         </div>
 
     </div>
+    
     <script src="./js/script.js"></script>
 </body>
 
