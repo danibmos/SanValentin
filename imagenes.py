@@ -26,4 +26,4 @@ for index, image in enumerate(images, start=1):
     
     # Renombrar la imagen
     os.rename(old_path, new_path)
-    print(f"Renombrado: {image} -> {new_name}")
+    print(f"Renombrado: {image} -> {new_name}") 
