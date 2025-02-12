@@ -23,7 +23,10 @@ function changePage(direction) {
     } else {
         document.getElementById('nextButton').style.display = 'inline-block';  // Mostrarlo en otras páginas
     }
+
 }
+
+
 
 document.getElementById('nextQuiz').addEventListener('click', () => {
     changeQuizPage(1);
@@ -385,34 +388,24 @@ document.getElementById('password-input').addEventListener('keydown', function (
 });
 
 
-// Lista de IDs de las canciones
-const songs = ["song1", "song2", "song3", "song4", "song5", "song6", "song7", "song8", "song9", 
-    "song10", "song11", "song12", "song13", "song14", "song15", "song16", "song17", 
-    "song18", "song19"];
-let currentSongIndex = 0;
+document.addEventListener("DOMContentLoaded", function () {
+    const audioElements = document.querySelectorAll("audio");
+    let currentIndex = Math.floor(Math.random() * audioElements.length); // Selecciona una canción aleatoria al inicio
 
-// Función para reproducir la siguiente canción
-function playNextSong() {
-    // Detener la canción actual
-    const currentSong = document.getElementById(songs[currentSongIndex]);
-    currentSong.pause();
+    function playNextSong() {
+        currentIndex = (currentIndex + 1) % audioElements.length;
+        audioElements[currentIndex].play();
+    }
 
-    // Avanzar al siguiente índice de canción
-    currentSongIndex = (currentSongIndex + 1) % songs.length;
+    audioElements.forEach((audio, index) => {
+        audio.addEventListener("ended", playNextSong); // Cuando termine una, suena la siguiente
+    });
 
-    // Reproducir la siguiente canción
-    const nextSong = document.getElementById(songs[currentSongIndex]);
-    nextSong.play();
-}
+    // Función para iniciar la música con interacción del usuario (requerido por navegadores modernos)
+    function startMusic() {
+        audioElements[currentIndex].play();
+        document.removeEventListener("click", startMusic); // Solo se necesita una interacción
+    }
 
-// Reproducir la primera canción al cargar la página
-window.onload = function () {
-    const firstSong = document.getElementById(songs[currentSongIndex]);
-    firstSong.play();
-};
-
-// Escuchar el evento 'ended' para pasar a la siguiente canción
-songs.forEach(songId => {
-    const song = document.getElementById(songId);
-    song.addEventListener('ended', playNextSong);
+    document.addEventListener("click", startMusic); // Iniciar música cuando el usuario haga clic en la página
 });
