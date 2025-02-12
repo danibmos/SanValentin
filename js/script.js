@@ -342,7 +342,7 @@ siButton.addEventListener("click", function () {
 
 
 // Contraseña correcta
-const correctPassword = "660128895"; // Cambia esto por la contraseña que quieras
+const correctPassword = "011224VD"; // Cambia esto por la contraseña que quieras
 let attemptsLeft = 3; // Número de intentos disponibles
 
 function checkPassword() {
