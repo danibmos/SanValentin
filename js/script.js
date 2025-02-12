@@ -409,3 +409,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("click", startMusic); // Iniciar música cuando el usuario haga clic en la página
 });
+
+
+function updateQuizPagination() {
+    const paginationContainer = document.getElementById("quizPagination");
+    paginationContainer.innerHTML = ""; // Limpia la paginación anterior
+
+    quizPages.forEach((_, index) => {
+        const pageButton = document.createElement("button");
+        pageButton.textContent = index + 1;
+        pageButton.classList.add("quiz-page-btn");
+
+        if (index === currentPage) {
+            pageButton.classList.add("active"); // Resaltar la página actual
+        }
+
+        pageButton.addEventListener("click", () => {
+            goToQuizPage(index);
+        });
+
+        paginationContainer.appendChild(pageButton);
+    });
+}
+
