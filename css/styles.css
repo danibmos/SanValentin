@@ -424,3 +424,8 @@ button:hover {
 #content {
     display: none;
 }
+
+/* Oculta los controles de audio */
+audio {
+    display: none;
+}

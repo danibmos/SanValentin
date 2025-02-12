@@ -212,7 +212,16 @@ document.addEventListener('DOMContentLoaded', function () {
         "img/fotos/imagen16.jpg",
         "img/fotos/imagen17.jpg",
         "img/fotos/imagen18.jpg",
-        "img/fotos/imagen19.jpg"
+        "img/fotos/imagen19.jpg",
+        "img/fotos/imagen20.jpg",
+        "img/fotos/imagen21.jpg",
+        "img/fotos/imagen22.jpg",
+        "img/fotos/imagen23.jpg",
+        "img/fotos/imagen24.jpg",
+        "img/fotos/imagen25.jpg",
+        "img/fotos/imagen26.jpg",
+        "img/fotos/imagen27.jpg",
+        "img/fotos/imagen28.jpg"
     ];
 
     let currentPageGallery = 1; // Página actual
@@ -373,4 +382,37 @@ document.getElementById('password-input').addEventListener('keydown', function (
     if (event.key === "Enter") {
         checkPassword(); // Llamar a la función checkPassword cuando se presiona Enter
     }
+});
+
+
+// Lista de IDs de las canciones
+const songs = ["song1", "song2", "song3", "song4", "song5", "song6", "song7", "song8", "song9", 
+    "song10", "song11", "song12", "song13", "song14", "song15", "song16", "song17", 
+    "song18", "song19"];
+let currentSongIndex = 0;
+
+// Función para reproducir la siguiente canción
+function playNextSong() {
+    // Detener la canción actual
+    const currentSong = document.getElementById(songs[currentSongIndex]);
+    currentSong.pause();
+
+    // Avanzar al siguiente índice de canción
+    currentSongIndex = (currentSongIndex + 1) % songs.length;
+
+    // Reproducir la siguiente canción
+    const nextSong = document.getElementById(songs[currentSongIndex]);
+    nextSong.play();
+}
+
+// Reproducir la primera canción al cargar la página
+window.onload = function () {
+    const firstSong = document.getElementById(songs[currentSongIndex]);
+    firstSong.play();
+};
+
+// Escuchar el evento 'ended' para pasar a la siguiente canción
+songs.forEach(songId => {
+    const song = document.getElementById(songId);
+    song.addEventListener('ended', playNextSong);
 });
